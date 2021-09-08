@@ -1,4 +1,4 @@
-import { Subject, Observer } from "../../types";
+import { Subject, Observer } from "../types";
 
 const createMarket = (): Subject => {
   const clients: Observer[] = [];
@@ -18,7 +18,9 @@ const createMarket = (): Subject => {
   };
 
   return {
-    observers: clients,
+    state: {
+      observers: clients,
+    },
     subscribe,
     unsubscribe,
     notifyAll,
